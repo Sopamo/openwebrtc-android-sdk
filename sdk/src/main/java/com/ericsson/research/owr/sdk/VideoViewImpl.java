@@ -26,8 +26,11 @@
 package com.ericsson.research.owr.sdk;
 
 import android.graphics.SurfaceTexture;
+import android.util.Log;
 import android.view.Surface;
 import android.view.TextureView;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import com.ericsson.research.owr.MediaSource;
 import com.ericsson.research.owr.VideoRenderer;
@@ -139,10 +142,20 @@ public class VideoViewImpl implements VideoView, MediaSourceListener {
             WindowRegistry.get().unregister(mTag);
         }
 
+        private void updateViewSize(int width, int height) {
+            float ratio = width / height;
+            float newHeight = mTextureView.getWidth() / ratio;
+            Log.i(TAG, "newsize: " + width + '-' + height);
+            //ViewGroup.LayoutParams params = mTextureView.getLayoutParams();
+            //params.height = (int)newHeight;
+            //mTextureView.setLayoutParams(params);
+        }
+
         @Override
         public synchronized void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int width, int height) {
             Surface surface = new Surface(surfaceTexture);
             WindowRegistry.get().register(mTag, surface);
+            updateViewSize(width, height);
         }
 
         @Override
@@ -153,6 +166,7 @@ public class VideoViewImpl implements VideoView, MediaSourceListener {
 
         @Override
         public void onSurfaceTextureSizeChanged(SurfaceTexture surface, int width, int height) {
+            updateViewSize(width, height);
         }
 
         @Override
