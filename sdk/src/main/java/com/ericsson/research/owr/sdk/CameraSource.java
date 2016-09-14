@@ -28,7 +28,7 @@ package com.ericsson.research.owr.sdk;
 import java.util.List;
 
 public abstract class CameraSource implements MediaSourceProvider {
-    public abstract VideoView createVideoView();
+    public abstract VideoView createVideoView(Integer[] cameraSize, double fps);
 
     public abstract String getName(int index);
 

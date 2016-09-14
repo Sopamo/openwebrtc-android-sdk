@@ -27,6 +27,7 @@ package com.ericsson.research.owr.sdk;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.provider.SyncStateContract;
 import android.util.Log;
 
 import com.ericsson.research.owr.CaptureSourcesCallback;
@@ -66,9 +67,10 @@ class CameraSourceImpl extends CameraSource {
     }
 
     @Override
-    public VideoView createVideoView() {
-        return new VideoViewImpl(this, 0, 0, 0);
+    public VideoView createVideoView(Integer[] cameraSize, double fps) {
+        return new VideoViewImpl(this, cameraSize[0], cameraSize[1], fps);
     }
+
 
     @Override
     public int getCount() {

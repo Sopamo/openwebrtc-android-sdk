@@ -27,7 +27,11 @@ package com.ericsson.research.owr.sdk;
 
 import android.view.TextureView;
 
+import com.ericsson.research.owr.VideoRenderer;
+
 public interface VideoView {
+
+    public VideoRenderer getmVideoRenderer();
     /**
      * Sets the rotation of the video in multiples of 90 degrees
      * @param rotation 0, 1, 2, or 3, any other value will throw an IllegalArgumentException

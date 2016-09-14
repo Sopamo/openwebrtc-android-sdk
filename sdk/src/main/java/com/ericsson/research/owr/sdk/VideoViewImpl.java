@@ -41,6 +41,10 @@ public class VideoViewImpl implements VideoView, MediaSourceListener {
     private MediaSource mVideoSource;
     private final String mTag;
 
+    public VideoRenderer getmVideoRenderer() {
+        return  mVideoRenderer;
+    }
+
     VideoViewImpl(MediaSourceProvider mediaSourceProvider, int width, int height, double framerate) {
         mVideoSource = null;
 
