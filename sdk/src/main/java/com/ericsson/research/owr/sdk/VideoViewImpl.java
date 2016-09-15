@@ -143,8 +143,8 @@ public class VideoViewImpl implements VideoView, MediaSourceListener {
         }
 
         private void updateViewSize(int width, int height) {
-            float ratio = width / height;
-            float newHeight = mTextureView.getWidth() / ratio;
+            float ratio = 1.333f;
+            float newHeight = mTextureView.getWidth() * ratio;
             Log.i(TAG, "newsize: " + width + '-' + height);
             //ViewGroup.LayoutParams params = mTextureView.getLayoutParams();
             //params.height = (int)newHeight;
