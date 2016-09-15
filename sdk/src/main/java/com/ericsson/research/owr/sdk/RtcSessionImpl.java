@@ -335,6 +335,7 @@ class RtcSessionImpl implements RtcSession, StreamHandler.RtcSessionDelegate {
                 streamHandler.stop();
             }
         }
+        Log.i(TAG, "Stop stream");
 
         mRemoteCandidateBuffer = null;
         mRemoteDescription = null;

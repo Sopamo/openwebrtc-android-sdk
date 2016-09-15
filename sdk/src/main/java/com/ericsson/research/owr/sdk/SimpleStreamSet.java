@@ -39,6 +39,7 @@ public class SimpleStreamSet extends StreamSet {
 
     private final boolean mWantVideo;
     private final boolean mWantAudio;
+    private final boolean mWantData;
 
     private final AudioRenderer mAudioRenderer;
 
@@ -51,6 +52,7 @@ public class SimpleStreamSet extends StreamSet {
                             boolean sendAudio, boolean sendVideo) {
         mWantAudio = sendAudio;
         mWantVideo = sendVideo;
+        mWantData = true;
 
         mAudioRenderer = new AudioRenderer();
 

@@ -56,10 +56,10 @@ public class VideoViewImpl implements VideoView, MediaSourceListener {
         mVideoRenderer = new VideoRenderer(mTag);
         mVideoRenderer.setRotation(0);
         if (width > 0) {
-            mVideoRenderer.setWidth(width);
+            mVideoRenderer.setWidth(height);
         }
         if (height > 0) {
-            mVideoRenderer.setHeight(height);
+            mVideoRenderer.setHeight(width);
         }
         if (framerate > 0) {
             mVideoRenderer.setMaxFramerate(framerate);
